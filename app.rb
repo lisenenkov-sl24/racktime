@@ -6,7 +6,7 @@ class App
 
     time = generate_time(params['format'], error_params = [])
 
-    return [400, { 'Content-Type' => 'text/plain' }, ["Unknown time format #{error_params}"]] if error_params.size > 0
+    return [400, { 'Content-Type' => 'text/plain' }, ["Unknown time format [#{error_params.join(', ')}]"]] unless error_params.empty?
 
     [200, { 'Content-Type' => 'text/plain' }, [time]]
   end
